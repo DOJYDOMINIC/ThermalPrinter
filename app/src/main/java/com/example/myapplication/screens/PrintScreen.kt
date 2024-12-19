@@ -23,14 +23,6 @@ fun PrintReceiptButton() {
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Text(text = "print Bluetooth")
-        }
-        Button(
-            onClick = { printReceipt(printer) },
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        ) {
             Text(text = "Print")
         }
     } else {
@@ -50,28 +42,21 @@ fun printReceipt(printer: BluetoothConnection) {
         32    // Number of characters per line
     )
     val receiptContent = """
-        [L]
         [C]<u><font size='big'>ORDER N°045</font></u>
         [C]================================
-        [L]
-        [L]<b>BEAUTIFUL SHIRT</b>[R]9.99€
+        <b>BEAUTIFUL SHIRT</b>[R]9.99€
         [L]  + Size : S
-        [L]
-        [L]<b>AWESOME HAT</b>[R]24.99€
+        <b>AWESOME HAT</b>[R]24.99€
         [L]  + Size : 57/58
-        [L]
         [C]--------------------------------
         [R]TOTAL PRICE :[R]34.98€
         [R]TAX :[R]4.23€
-        [L]
         [C]================================
-        [L]
-        [L]<font size='tall'>Customer :</font>
+        <font size='tall'>Customer :</font>
         [L]Raymond DUPONT
         [L]5 rue des girafes
         [L]31547 PERPETES
         [L]Tel : +33801201456
-        [L]
         [C]<barcode type='ean13' height='10'>831254784551</barcode>
     """.trimIndent()
 
@@ -82,3 +67,4 @@ fun printReceipt(printer: BluetoothConnection) {
         // Toast.makeText(context, "Error printing receipt: ${e.message}", Toast.LENGTH_SHORT).show()
     }
 }
+
